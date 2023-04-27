@@ -8,6 +8,10 @@ app.use("/", (req, res) => {
   res.json({ message: "Hello from express app" });
 });
 
+app.use("/ping", (req, res) => {
+  res.json({ message: "Hello from express app" });
+});
+
 app.listen(port, () => {
   console.log(`Starting server on port ${port}`);
 });
