@@ -4,12 +4,12 @@ const app = express();
 
 const port = 9000;
 
-app.use("/", (req, res) => {
-  res.json({ message: "Hello from express app" });
-});
-
 app.use("/ping", (req, res) => {
   res.json({ message: "Ping successful" });
+});
+
+app.use("/", (req, res) => {
+  res.json({ message: "Hello from express app" });
 });
 
 app.listen(port, () => {
