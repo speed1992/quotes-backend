@@ -9,7 +9,7 @@ app.use("/", (req, res) => {
 });
 
 app.use("/ping", (req, res) => {
-  res.json({ message: "Hello from express app" });
+  res.json({ message: "Ping successful" });
 });
 
 app.listen(port, () => {
