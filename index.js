@@ -10,7 +10,7 @@ const port = 80;
 
 app.use(express.json());
 
-app.use("/ping", (req, res) => {
+app.use("/", (req, res) => {
   res.json({ message: "Ping successful" });
 });
 
