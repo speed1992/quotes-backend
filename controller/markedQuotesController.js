@@ -18,7 +18,6 @@ const createUpdateMarkedQuotes = async (req, res) => {
 
     console.log("createUpdateMarkedQuotes done");
     console.log(found);
-    throw new Error("Mock Error");
   } catch (error) {
     res.status(500).json({ ok: false, error });
     console.log(error);
