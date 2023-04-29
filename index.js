@@ -11,11 +11,11 @@ const port = 80;
 
 app.use(express.json());
 
+app.use("/api/markedQuotes", markedQuotesRoutes);
+
 app.use("/", (req, res) => {
   res.json({ message: "Ping successful" });
 });
-
-app.use("/api/markedQuotes", markedQuotesRoutes);
 
 const serverStart = async () => {
   try {
