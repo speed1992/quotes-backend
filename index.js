@@ -2,6 +2,7 @@ import express from "express";
 import dbConfig from "./database-config/dbConfig.js";
 import dotenv from "dotenv";
 import markedQuotesRoutes from "./routes/markedQuotesRoutes.js";
+import { MONGO_URI } from "./database-config/constants.js";
 dotenv.config();
 
 const app = express();
@@ -18,8 +19,8 @@ app.use("/api/markedQuotes", markedQuotesRoutes);
 
 const serverStart = async () => {
   try {
-    console.log("connecting to", process.env.MONGO_URI);
-    await dbConfig(process.env.MONGO_URI);
+    console.log("connecting to", MONGO_URI);
+    await dbConfig(MONGO_URI);
     app.listen(port, () => {
       console.log(`Starting server on port ${port}`);
     });
