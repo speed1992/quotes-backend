@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dbConfig from "./database-config/dbConfig.js";
 import dotenv from "dotenv";
 import markedQuotesRoutes from "./routes/markedQuotesRoutes.js";
