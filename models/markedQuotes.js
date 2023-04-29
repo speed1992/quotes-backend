@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const markedQuotesSchema = new mongoose.Schema(
   {
-    quotes: { type: Object, required: true },
+    markedQuotes: { type: Object, required: true },
     userId: { type: Number, required: true },
     dateSynced: { type: Number, required: true },
   },
