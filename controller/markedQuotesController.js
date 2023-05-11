@@ -22,7 +22,7 @@ const createUpdateMarkedQuotes = async (req, res) => {
     res.status(500).json({ ok: false, error });
     console.log(error);
   }
-  res.status(200).json({ ok: true });
+  res.status(200).json({ serverResponse: "SUCCESS!" });
 };
 
 export { getAllMarkedQuotes, createUpdateMarkedQuotes };
