@@ -1,7 +1,14 @@
 import markedQuotesSchema from "../models/markedQuotes.js";
 
-const getAllMarkedQuotes = (req, res) => {
-  res.send("getAllMarkedQuotes");
+const getAllMarkedQuotes = async (req, res) => {
+  let results;
+  try {
+    results = await markedQuotesSchema.find({});
+  } catch (error) {
+    res.status(500).json({ ok: false, error });
+    console.log(error);
+  }
+  res.status(200).json(results);
 };
 
 const createUpdateMarkedQuotes = async (req, res) => {
