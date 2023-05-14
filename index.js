@@ -3,6 +3,7 @@ import cors from "cors";
 import dbConfig from "./database-config/dbConfig.js";
 import dotenv from "dotenv";
 import markedQuotesRoutes from "./routes/markedQuotesRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import { MONGO_URI } from "./database-config/constants.js";
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/markedQuotes", markedQuotesRoutes);
+app.use("/api/user", userRoutes);
 
 app.use("/", (req, res) => {
   res.json({ message: "Ping successful" });

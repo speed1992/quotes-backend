@@ -29,7 +29,10 @@ const createUpdateMarkedQuotes = async (req, res) => {
     res.status(500).json({ ok: false, error });
     console.log(error);
   }
-  res.status(200).json({ serverResponse: "SUCCESS!" });
+  res.status(200).json({
+    ok: true,
+    serverResponse: "Marked quotes successfully synced with server!",
+  });
 };
 
 export { getAllMarkedQuotes, createUpdateMarkedQuotes };
