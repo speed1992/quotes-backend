@@ -31,7 +31,7 @@ const createUpdateMarkedQuotes = async (req, res) => {
   }
   res.status(200).json({
     ok: true,
-    serverResponse: "Marked quotes successfully synced with server!",
+    message: "Marked quotes successfully synced with server!",
   });
 };
 
