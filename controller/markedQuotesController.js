@@ -14,7 +14,7 @@ const getAllMarkedQuotes = async (req, res) => {
 const createUpdateMarkedQuotes = async (req, res) => {
   let found;
   try {
-    const filter = { userId: req.body.userId };
+    const filter = { userName: req.body.userName };
     const update = { ...req.body };
 
     await markedQuotesSchema.findOneAndUpdate(filter, update, {
