@@ -8,7 +8,11 @@ const getUser = async (req, res) => {
     results = await userSchema.find({ userName });
     console.log(results);
     if (results.length > 0) {
-      res.status(200).json({ ok: true, data: results });
+      res.status(200).json({
+        ok: true,
+        data: results,
+        serverResponse: "Successfully logged in!",
+      });
     } else {
       res.status(500).json({
         ok: false,
