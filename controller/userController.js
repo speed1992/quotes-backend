@@ -11,7 +11,6 @@ const loginUser = async (req, res) => {
     if (results.length > 0) {
       res.status(200).json({
         ok: true,
-        data: results,
         serverResponse: "Successfully logged in!",
       });
     } else {
