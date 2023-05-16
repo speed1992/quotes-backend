@@ -4,11 +4,11 @@ import {
   createUpdateMarkedQuotes,
 } from "../controller/markedQuotesController.js";
 
-import { getUser, createUser } from "../controller/userController.js";
+import { loginUser, createUser } from "../controller/userController.js";
 
 const router = express.Router();
 
 router.route("/").get(getAllMarkedQuotes).post(createUpdateMarkedQuotes);
-router.route("/user").get(getUser).post(createUser);
+router.route("/user").get(loginUser).post(createUser);
 
 export default router;

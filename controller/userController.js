@@ -1,11 +1,12 @@
 import userSchema from "../models/users.js";
 
-const getUser = async (req, res) => {
+const loginUser = async (req, res) => {
   let results;
-  const userName = req.query.userName;
+  const userName = req.body.userName;
+  const password = req.body.password;
 
   try {
-    results = await userSchema.find({ userName });
+    results = await userSchema.find({ userName, password });
     console.log(results);
     if (results.length > 0) {
       res.status(200).json({
@@ -47,4 +48,4 @@ const createUser = async (req, res) => {
   }
 };
 
-export { getUser, createUser };
+export { loginUser, createUser };
