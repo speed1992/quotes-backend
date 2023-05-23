@@ -1,9 +1,11 @@
 import markedQuotesSchema from "../models/markedQuotes.js";
 
-const getAllMarkedQuotes = async (req, res) => {
+const retrieveAllMarkedQuotes = async (req, res) => {
+  const userName = req.body.userName;
+
   let results;
   try {
-    results = await markedQuotesSchema.find({});
+    results = await markedQuotesSchema.find({ userName });
   } catch (error) {
     res.status(500).json({ ok: false, error });
     console.log(error);
@@ -35,4 +37,4 @@ const createUpdateMarkedQuotes = async (req, res) => {
   });
 };
 
-export { getAllMarkedQuotes, createUpdateMarkedQuotes };
+export { retrieveAllMarkedQuotes, createUpdateMarkedQuotes };

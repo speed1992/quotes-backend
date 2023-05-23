@@ -1,14 +1,12 @@
 import express from "express";
 import {
-  getAllMarkedQuotes,
+  retrieveAllMarkedQuotes,
   createUpdateMarkedQuotes,
 } from "../controller/markedQuotesController.js";
 
-import { loginUser, createUser } from "../controller/userController.js";
-
 const router = express.Router();
 
-router.route("/").get(getAllMarkedQuotes).post(createUpdateMarkedQuotes);
-router.route("/user").get(loginUser).post(createUser);
+router.route("/backup").post(createUpdateMarkedQuotes);
+router.route("/restore").post(retrieveAllMarkedQuotes);
 
 export default router;
