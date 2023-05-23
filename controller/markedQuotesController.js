@@ -10,7 +10,7 @@ const retrieveAllMarkedQuotes = async (req, res) => {
     res.status(500).json({ ok: false, error });
     console.log(error);
   }
-  if (results.length > 0) res.status(200).json(results);
+  if (results.length > 0) res.status(200).json({ ok: true, results });
   else res.status(500).json({ ok: false, error: "No quotes found on server!" });
 };
 
