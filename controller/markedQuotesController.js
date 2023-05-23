@@ -25,9 +25,6 @@ const createUpdateMarkedQuotes = async (req, res) => {
     });
 
     found = await markedQuotesSchema.findOne(filter);
-
-    console.log("createUpdateMarkedQuotes done");
-    console.log(found);
   } catch (error) {
     res.status(500).json({ ok: false, error });
     console.log(error);
