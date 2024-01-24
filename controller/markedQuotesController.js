@@ -14,6 +14,23 @@ const retrieveAllMarkedQuotes = async (req, res) => {
   else res.status(500).json({ ok: false, error: "No quotes found on server!" });
 };
 
+const getAllMarkedQuotesCount = async (req, res) => {
+  const userName = req.body.userName;
+
+  let results;
+  try {
+    results = await markedQuotesSchema.find({ userName });
+  } catch (error) {
+    res.status(500).json({ ok: false, error });
+    console.log(error);
+  }
+
+  const count = Object.values(results[0]?.markedQuotes).flat().length;
+
+  if (results?.length > 0) res.status(200).json({ ok: true, count });
+  else res.status(500).json({ ok: false, error: "No quotes found on server!" });
+};
+
 const createUpdateMarkedQuotes = async (req, res) => {
   let found;
   try {
@@ -35,4 +52,8 @@ const createUpdateMarkedQuotes = async (req, res) => {
   });
 };
 
-export { retrieveAllMarkedQuotes, createUpdateMarkedQuotes };
+export {
+  retrieveAllMarkedQuotes,
+  createUpdateMarkedQuotes,
+  getAllMarkedQuotesCount,
+};
