@@ -20,7 +20,9 @@ const getAllMarkedQuotesCount = async (req, res) => {
   let results;
   try {
     results = await markedQuotesSchema.find({ userName });
-    const count = Object.values(results[0]?.markedQuotes)?.flat()?.length;
+    const count = results[0]?.markedQuotes
+      ? Object.values(results[0]?.markedQuotes)?.flat()?.length
+      : 0;
 
     if (results?.length > 0 && count) res.status(200).json({ ok: true, count });
     if (!count) res.status(200).json({ ok: true, count: 0 });
