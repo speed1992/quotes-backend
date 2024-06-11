@@ -27,7 +27,7 @@ const getAllMarkedQuotesCount = async (req, res) => {
     if (results?.length > 0 && count) res.status(200).json({ ok: true, count });
     if (!count) res.status(200).json({ ok: true, count: 0 });
     else
-      res.status(500).json({ ok: false, error: "No quotes found on server!" });
+      res.status(200).json({ ok: false, error: "No quotes found on server!" });
   } catch (error) {
     res.status(500).json({ ok: false, error });
     console.log(error);

@@ -18,4 +18,15 @@ const sendErrors = async (req, res) => {
   });
 };
 
-export { sendErrors };
+const getErrors = async (req, res) => {
+  try {
+    const results = await errorSchema.find({});
+    res.status(200).json({ ok: true, errorList: results });
+    return;
+  } catch (error) {
+    res.status(500).json({ ok: false, error });
+    console.log(error);
+  }
+};
+
+export { sendErrors, getErrors };
