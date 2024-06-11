@@ -20,7 +20,7 @@ const sendErrors = async (req, res) => {
 
 const getErrors = async (req, res) => {
   try {
-    const results = await errorSchema.find({});
+    const results = await errorSchema.find({}).sort({ createdAt: -1 });
     res.status(200).json({ ok: true, errorList: results });
     return;
   } catch (error) {
